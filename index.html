@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Tic Tac Toe</h1>
+  </header>
+  <main class="main">
+    <h2 class="main__title" id="playerTitle">¡Empezamos!</h2>
+    <ol class="board" id="game-table">
+      <!-- Las celdas del tablero se generarán dinámicamente aquí -->
+    </ol>
+    <button type="button" class="main__button" id="changeColor">Cambia el color</button>
+    <section class="scores">
+      <h2 class="scores__title">Puntuación</h2>
+      <ul class="scores__list">
+        <li class="scores__item">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="00 20 80 80" version="1.1" class="icon x">
+            <g stroke-width="1" fill-rule="evenodd">
+              <g transform="translate(-265.000000, -156.000000)">
+                <g transform="translate(16.000000, 141.000000)">
+                  <g transform="translate(289.000000, 55.000000) rotate(-315.000000) translate(-289.000000, -55.000000) translate(261.000000, 27.000000) scale(1.5,1.5)">
+                    <rect x="21.8048515" y="0.722642212" width="12.2739726" height="55.2328767"/>
+                    <polygon transform="translate(27.941838, 28.339081) rotate(-270.000000) translate(-27.941838, -28.339081) " points="21.8048515 0.722642212 34.0788241 0.722642212 34.0788241 55.9555189 21.8048515 55.9555189"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg> - <span id="playerXWins">0</span>
+        </li>
+        <li class="scores__item">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 56 56" version="1.1" class="icon o">
+            <g stroke-width="1" fill-rule="evenodd">
+              <g transform="translate(-160.000000, -168.000000)" stroke-width="10">
+                <g transform="translate(16.000000, 141.000000)">
+                  <circle cx="172" cy="55" r="23"/>
+                </g>
+              </g>
+            </g>
+          </svg> - <span id="playerOWins">0</span>
+        </li>
+      </ul>
+      <button class="reset new-game-button">Nuevo juego</button>
+    </section>
+    <dialog id="winnerDialog" class="dialog">
+      <p class="dialog__text" id="winnerText">¡Tenemos un ganador!</p>
+      <p class="dialog__winner" id="winnerIcon"></p>
+      <button class="reset new-game-button">Nuevo juego</button>
+    </dialog>
+  </main>
+  <aside class="aside">
+    <button class="aside__button" id="toggleAside">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="button__icon button__icon--close">
+        <path d="m-210.9-289-2-2 11.8-11.7-11.8-11.7 2-2 13.8 13.7-13.8 13.7" transform="translate(237 335)"></path>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="button__icon button__icon--open">
+        <path d="M37.9 46 24.1 32.3l13.8-13.7 2 2-11.8 11.7L39.9 44l-2 2"></path>
+      </svg>
+    </button>
+    <section class="aside__wrapper">
+      <h2 class="aside__title">Comentarios</h2>
+      <ul class="aside__list">
+        <li class="aside__item">
+          <h3 class="list__title">
+            HTML
+          </h3>
+          <p class="list__text">El código HTML ha sido reelaborado con el objetivo de mejorar su semántica y organizarlo de manera más eficiente.</p>
+          <p class="list__text">Adicionalmente, se ha incorporado un panel lateral que permite la visualización de comentarios relacionados con el desarrollo, así como los motivos que respaldan las modificaciones realizadas.</p>
+        </li>
+        <li class="aside__item">
+          <h3 class="list__title">
+            CSS
+          </h3>
+          <p class="list__text">La hoja de estilos CSS ha sido completamente reescrita, adoptando el uso de SCSS.</p>
+          <p class="list__text">Ahora mismo, la hoja de estilos se beneficia tanto de las mejoras presentes en el estándar CSS actual (propiedades personalizadas, funciones como calc(), entre otras) como de las ventajas proporcionadas por SCSS (mixins, variables, funciones, etc.).</p>
+          <p class="list__text">Se contempla la posibilidad de mejorar esta sección en el futuro mediante su división en archivos independientes.</p>
+        </li>
+        <li class="aside__item">
+          <h3 class="list__title">
+            JS
+          </h3>
+          <p class="list__text">El código JavaScript ha sido reescrito, preservando parte del desarrollo original mientras se optimiza la lógica del juego.</p>
+          <p class="list__text">Se ha optado por separar la lógica de presentación (DOMManipulator) de la lógica del juego (TicTacToeGame), siguiendo el principio de responsabilidad única.</p>
+          <p class="list__text">El uso de clases y propiedades de clase ha permitido encapsular la lógica del juego, dividiendo funciones más extensas en fragmentos más específicos para mejorar la legibilidad y mantenibilidad.</p>
+          <p class="list__text">Se han dividido las funciones más grandes en funciones más pequeñas y específicas para mejorar la legibilidad y la mantenibilidad.</p>
+          <p class="list__text">Se han empleado funciones más descriptivas y claras para mejorar la comprensión del código, así como funciones flecha para simplificar la estructura y evitar posibles problemas con el contexto de "this".</p>
+          <p class="list__text">A pesar de estas mejoras, aún se pueden abordar otras áreas de optimización, tales como:</p>
+            <ul class="list__sublist">
+              <li class="sublist__item">Utilización de Clases y Módulos: División de la lógica del juego y la manipulación del DOM en clases separadas para una gestión y organización más efectiva del código. Además, considerar el uso de módulos si el código sigue creciendo.</li>
+              <li class="sublist__item">Empleo de CSS en lugar de Clases en JavaScript: Donde sea posible, evitar la adición y eliminación directa de clases en JavaScript, optando en su lugar por controlar el aspecto visual a través de CSS y modificar solo las propiedades necesarias desde JavaScript.</li>
+              <li class="sublist__item">Utilización de Funciones Puras: Se recomienda mantener las funciones lo más puras posible, evitando la manipulación directa del DOM y optando por devolver valores necesarios para su posterior manipulación.</li>
+              <li class="sublist__item">Desacoplamiento del Juego de la Interfaz de Usuario: Separar la lógica del juego de la interfaz de usuario para facilitar la reutilización del código y permitir la implementación de diferentes interfaces de usuario si es necesario.</li>
+              <li class="sublist__item">Mejora de la Estructura de Datos: Considerar el uso de una clase para representar el estado del juego en lugar de matrices bidimensionales, con el objetivo de hacer las operaciones relacionadas con el juego más intuitivas y comprensibles.</li>
+            </ul>
+        </li>
+      </ul>
+    </section>
+  </aside>
+  <script src="index.js"></script>
+</body>
+</html>
